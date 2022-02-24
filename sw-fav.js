@@ -91,11 +91,10 @@ self.addEventListener('fetch', function (event) {
       return fetch(request).then(function (response) {
         // Check if we received a valid response
         const url = request.url || '';
-        if (!response || response.status !== 200 || response.type !== 'basic') {
-          if (!_shouldCacheThisUrl(url)) {
-            // not caching this
-            return response;
-          }
+        const method = (request.method || 'GET').toUpperCase();
+        if (!_shouldCacheThisUrl(url) || method !== 'GET') {
+          // not caching this
+          return response;
         }
 
         const responseToCache = response.clone(); // need to clone before used
@@ -111,7 +110,15 @@ self.addEventListener('fetch', function (event) {
 });
 
 function _shouldCacheThisUrl(url) {
-  if (url.includes('cdn.skypack.dev') || url.includes('cloudflare.com') || url.includes('unpkg.com')) {
+  if(url.includes('chrome-extension://')){
+    return false;
+  }
+
+  if (
+    url.includes('cdn.skypack.dev') ||
+    url.includes('cloudflare.com') ||
+    url.includes('unpkg.com')
+  ) {
     return true;
   }
 
