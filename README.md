@@ -2,6 +2,8 @@
 
 Template which can be used to generate new bookmark. https://github.com/synle/nav-generator-template
 
+The core library is located here: https://github.com/synle/nav-generator
+
 ## Guide
 
 Refer to the `index.js` (https://github.com/synle/nav-generator-template/blob/main/index.js) to define new schema.

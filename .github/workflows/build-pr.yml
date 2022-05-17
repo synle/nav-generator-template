@@ -1,7 +1,7 @@
-name: main-build
+name: build-pr
 
 on:
-  push:
+  pull_request:
     branches: [master, main]
 
 jobs:
@@ -22,7 +22,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org/
       - run: npm install
-      - run: npm run build
-      - uses: EndBug/add-and-commit@v7
+      - run: npm run format
+      - uses: EndBug/add-and-commit@v8
         with:
           message: 'CI / CD - Prettier Automatic Commit'
+        continue-on-error: true
