@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nav-generator-template-1.1.1652806489354';
+const CACHE_NAME = 'nav-generator-template-1.1.1660304506241';
 
 const dynamicUrlsToCache = [];
 
