@@ -15,6 +15,7 @@ const staticUrlsToCache = [
   'https://unpkg.com/@babel/standalone/babel.min.js',
   'https://cdn.skypack.dev/react',
   'https://cdn.skypack.dev/react-dom',
+  'https://cdn.jsdelivr.net',
 ];
 
 const cacheKeys = [...staticUrlsToCache, ...dynamicUrlsToCache];
