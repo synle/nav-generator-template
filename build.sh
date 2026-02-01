@@ -1,4 +1,2 @@
 sh format.sh
-
-echo '>> Update ServiceWorker Version'
-node updateServiceWorkerVersion.js 'sw-fav.js'
+curl -o import-map.json https://synle.github.io/nav-generator/import-map.json
