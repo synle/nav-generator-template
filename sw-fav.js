@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nav-generator-template-1.1.1660304506241';
+const CACHE_NAME = 'nav-generator-template-1.1.1769963234513';
 
 const dynamicUrlsToCache = [];
 
@@ -15,6 +15,7 @@ const staticUrlsToCache = [
   'https://unpkg.com/@babel/standalone/babel.min.js',
   'https://cdn.skypack.dev/react',
   'https://cdn.skypack.dev/react-dom',
+  'https://cdn.jsdelivr.net',
 ];
 
 const cacheKeys = [...staticUrlsToCache, ...dynamicUrlsToCache];
