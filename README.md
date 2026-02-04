@@ -39,3 +39,8 @@ Before this, make sure you modify the name of the package.json accordingly.
 - After this step, you will be given a URL of your deployment
 
 ![image](https://user-images.githubusercontent.com/3792401/133660986-610aae31-31a0-47c7-8223-91dfb40c61bf.png)
+
+### How to test?
+
+- localhost:8080
+- https://synle.github.io/nav-generator-template
