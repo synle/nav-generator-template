@@ -1,5 +1,5 @@
 // hook up custom event
-document.addEventListener('NavBeforeLoad', async (e) => {
+document.addEventListener("NavBeforeLoad", async (e) => {
   const { renderSchema } = e;
 
   if (!renderSchema) {
@@ -28,9 +28,9 @@ document.addEventListener('NavBeforeLoad', async (e) => {
       hacker news | hn.svelte.dev/top/1
       echojs | echojs.com
   `
-    .split('\n')
+    .split("\n")
     .map((s) => s.trim())
-    .join('\n');
+    .join("\n");
 
   // construct and save the data to cache.
   renderSchema(SITE_SCHEMA);
