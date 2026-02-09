@@ -3,5 +3,3 @@ curl -s -S -o index.html https://synle.github.io/nav-generator/index.template.ht
 
 echo 'Download dev.sh template'
 curl -s -S -o dev.sh https://synle.github.io/nav-generator/dev.sh
-
-npm run format
