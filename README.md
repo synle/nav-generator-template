@@ -1,8 +1,6 @@
 # nav-generator-template
 
-Template which can be used to generate new bookmark. https://github.com/synle/nav-generator-template
-
-The core library is located here: https://github.com/synle/nav-generator
+Template which can be used to generate new bookmark. The core library is located here: https://github.com/synle/nav-generator
 
 ## Guide
 
