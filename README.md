@@ -49,5 +49,5 @@ Follow the steps below to create a new repository from this template and deploy 
 
 You can test your project locally or via GitHub Pages:
 
-* **Local:** [http://localhost:8080](http://localhost:8080)
-* **GitHub Pages:** [https://synle.github.io/nav-generator-template](https://synle.github.io/nav-generator-template)
+- **Local:** [http://localhost:8080](http://localhost:8080)
+- **GitHub Pages:** [https://synle.github.io/nav-generator-template](https://synle.github.io/nav-generator-template)
