@@ -4,7 +4,7 @@
   "private": true,
   "description": "Nav Generator Template",
   "devDependencies": {
-    "prettier": "^3.8.1"
+    "prettier": "^3.8.3"
   },
   "scripts": {
     "clean": "rm -f index.html import-map.json .prettier-cache",
