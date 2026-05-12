@@ -2,7 +2,7 @@
 
 ## High-Level Overview
 
-`nav-generator-template` is a GitHub-template repository that downstream users fork to publish their own personal bookmark/navigation page on GitHub Pages. The runtime engine lives in the upstream library [`synle/nav-generator`](https://github.com/synle/nav-generator); this repo contains only the per-user *schema* (the list of links) plus a thin HTML/JS shell that loads the engine from `synle.github.io/nav-generator`.
+`nav-generator-template` is a GitHub-template repository that downstream users fork to publish their own personal bookmark/navigation page on GitHub Pages. The runtime engine lives in the upstream library [`synle/nav-generator`](https://github.com/synle/nav-generator); this repo contains only the per-user _schema_ (the list of links) plus a thin HTML/JS shell that loads the engine from `synle.github.io/nav-generator`.
 
 Conceptually:
 
@@ -48,5 +48,5 @@ The repo is intentionally flat: a template has to stay trivial for downstream fo
    - `concurrency` cancels in-progress runs on the same ref so a fast follow-up push supersedes its predecessor.
 
 3. **Release**
-   - There is no tagged release artifact. The site itself *is* the release: a successful `main` build deploys to `https://<user>.github.io/nav-generator-template/` (or the fork's equivalent).
+   - There is no tagged release artifact. The site itself _is_ the release: a successful `main` build deploys to `https://<user>.github.io/nav-generator-template/` (or the fork's equivalent).
    - The engine and service worker are pinned by URL to `synle.github.io/nav-generator`, so upstream engine changes flow to every deployed instance on the next page load / SW update cycle without re-deploying the template.
