@@ -25,7 +25,7 @@ No application code beyond the schema and shell — the template stays minimal s
 - `build.sh` — Pulls canonical `index.template.html` and `dev.sh` from `synle.github.io/nav-generator`. How forks stay in sync with upstream.
 - `dev.sh` — Local dev loop. Streams `synle/workflows`' shared dev harness, watches `*.json *.scss *.jsx *.js`, runs `npm run start`.
 - `package.json` — Sole devDependency: `oxfmt`. Scripts: `build`, `dev`, `start` (`http-server` on `127.0.0.1:8080`), `format`, `format:check`, `clean`.
-- `.github/workflows/build-main.yml` — On push/PR to `main`/`master`, delegates to `synle/workflows/.github/workflows/build-and-commit-sh.yml@main` with `deploy-to-pages: true`; grants `contents: write`, `pages: write`, `id-token: write`; concurrency-cancels superseded runs per ref.
+- `.github/workflows/build-main.yml` — On push/PR to `main`/`master`, delegates to `synle/workflows/.github/workflows/build-and-commit-sh.yml@main` with `deploy-to-pages: false`; grants `contents: write`; concurrency-cancels superseded runs per ref.
 - `README.md` — Forking + Pages setup instructions.
 - `DEV.md`, `AGENTS.md` — Developer/agent guidance; AGENTS.md enforces squash-merge policy and `raw.githubusercontent.com` for raw fetches.
 
@@ -34,5 +34,5 @@ Not tracked but relevant: `.oxfmtrc.json` (formatter config), `.gitignore`, `.gi
 ## Build & Release Flow
 
 1. **Local dev** — `npm run dev` serves on `127.0.0.1:8080` with auto-reload; `npm run build` re-fetches the upstream shell; `npm run format` runs `oxfmt --write .`.
-2. **CI** (`.github/workflows/build-main.yml`) — runs `build.sh` (refreshing `index.html` / `dev.sh` from upstream), commits drift back to the branch, then deploys to GitHub Pages.
-3. **Release** — no tagged artifact; the deployed site is the release at `https://<user>.github.io/nav-generator-template/`. Engine and service worker are pinned by URL to `synle.github.io/nav-generator`, so upstream changes flow to every instance without re-deploying.
+2. **CI** (`.github/workflows/build-main.yml`) — runs `build.sh` (refreshing `index.html` / `dev.sh` from upstream) and commits any drift back to the branch. GitHub's branch-based Pages build then deploys the pushed `main` automatically.
+3. **Release** — no tagged artifact and CI never bumps the version; the deployed site is the release at `https://<user>.github.io/nav-generator-template/`. Engine and service worker are pinned by URL to `synle.github.io/nav-generator`, so upstream changes flow to every instance without re-deploying.
