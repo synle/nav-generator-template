@@ -1,30 +1,24 @@
 # nav-generator-template
 
-A template for generating new bookmarks using the core library available at:
-[https://github.com/synle/nav-generator](https://github.com/synle/nav-generator)
+Template for building bookmark/nav pages with the [nav-generator](https://github.com/synle/nav-generator) core library.
 
-## Guide
+## Schema
 
-To define a new schema, refer to the [`index.js`](https://github.com/synle/nav-generator-template/blob/main/index.js) file.
-
-For syntax details and additional configuration options, see the main repository:
-[https://github.com/synle/nav-generator](https://github.com/synle/nav-generator)
+Define your links in [`index.js`](https://github.com/synle/nav-generator-template/blob/main/index.js). For syntax and configuration options, see [nav-generator](https://github.com/synle/nav-generator).
 
 ## Demo
 
-Try the live demo here:
-[https://synle.github.io/nav-generator-template/](https://synle.github.io/nav-generator-template/)
+Live: https://synle.github.io/nav-generator-template/
+
+Local: `npm run dev`, then http://localhost:8080
 
 ## Deployment
 
-Follow the steps below to create a new repository from this template and deploy it to GitHub Pages.
+Create your own copy from this template and deploy it to GitHub Pages.
 
-> **Important:** Before deploying, make sure to update the `name` field in your `package.json`.
+> **Important:** Before deploying, update the `name` field in `package.json`.
 
-### Steps
-
-1. **Create a new repository from this template**
-   Make sure the repository is set to **public**.
+1. **Create a public repository from this template**
 
    ![Create Repo](https://user-images.githubusercontent.com/3792401/133660651-369e9f82-8c98-4db8-a504-1a808de208a8.png)
 
@@ -40,14 +34,6 @@ Follow the steps below to create a new repository from this template and deploy 
 
    ![Main Branch](https://user-images.githubusercontent.com/3792401/133660923-dee70477-8d08-4103-a6b7-21dadf107c91.png)
 
-5. **Access your deployed site**
-   After saving, GitHub will provide a deployment URL.
+5. **Access your deployed site** — GitHub will provide the deployment URL after saving.
 
    ![Deployment URL](https://user-images.githubusercontent.com/3792401/133660986-610aae31-31a0-47c7-8223-91dfb40c61bf.png)
-
-## How to Test
-
-You can test your project locally or via GitHub Pages:
-
-- **Local:** [http://localhost:8080](http://localhost:8080)
-- **GitHub Pages:** [https://synle.github.io/nav-generator-template](https://synle.github.io/nav-generator-template)

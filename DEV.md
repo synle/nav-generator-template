@@ -1,6 +1,6 @@
 # nav-generator-template
 
-Template repo for generating bookmark/nav pages using the [nav-generator](https://github.com/synle/nav-generator) core library. Plain HTML + JS with Prettier; served locally via `http-server` and deployable to GitHub Pages.
+Template repo for generating bookmark/nav pages using the [nav-generator](https://github.com/synle/nav-generator) core library. Plain HTML + JS, formatted with `oxfmt`; served locally via `http-server` and deployable to GitHub Pages.
 
 ## Quick Start
 

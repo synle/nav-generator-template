@@ -1,4 +1,3 @@
-// hook up custom event
 document.addEventListener("NavBeforeLoad", async (e) => {
   const { renderSchema } = e;
 
@@ -32,6 +31,5 @@ document.addEventListener("NavBeforeLoad", async (e) => {
     .map((s) => s.trim())
     .join("\n");
 
-  // construct and save the data to cache.
   renderSchema(SITE_SCHEMA);
 });
