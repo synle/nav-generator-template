@@ -16,5 +16,9 @@ jobs:
     uses: synle/workflows/.github/workflows/build-and-commit-sh.yml@main
     with:
       deploy-to-pages: false
+    # pages/id-token must stay granted: the reusable workflow's job declares
+    # them unconditionally, and callers cannot downgrade a nested job's request.
     permissions:
       contents: write
+      pages: write
+      id-token: write
