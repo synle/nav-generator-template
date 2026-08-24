@@ -33,3 +33,9 @@ Format the codebase:
 ```bash
 npm run format
 ```
+
+Lint the codebase:
+
+```bash
+npm run lint
+```
