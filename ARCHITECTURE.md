@@ -16,7 +16,7 @@ No application code beyond the schema and shell — the template stays minimal s
 ## Key Directories
 
 - `/` (root) — Entire site. Static, no nesting, no `src/` or `dist/`.
-- `.github/workflows/` — Repository-local build, format, lint, and commit-amend pipeline.
+- `.github/workflows/` — Caller for the shared build, format, lint, and opt-in commit-amend workflow.
 
 ## Important Files
 
@@ -25,7 +25,7 @@ No application code beyond the schema and shell — the template stays minimal s
 - `build.sh` — Pulls canonical `index.template.html` and `dev.sh` from `synle.github.io/nav-generator`. How forks stay in sync with upstream.
 - `dev.sh` — Local dev loop. Streams `synle/workflows`' shared dev harness, watches `*.json *.scss *.jsx *.js`, runs `npm run start`.
 - `package.json` — DevDependencies: `oxfmt` (formatting), `oxlint` (linting). Scripts: `build`, `dev`, `start` (`http-server` on `127.0.0.1:8080`), `format`, `format:check`, `lint`, `lint:fix`, `clean`.
-- `.github/workflows/build-main.yml` — On push/PR to `main`/`master`, installs dependencies, builds, formats, and lints. Pushes amend generated changes into the triggering commit, preserving its author and message, with an explicit `--force-with-lease` against the triggering SHA. Full-history checkout preserves ancestry; a newer remote commit rejects the push. PRs validate without committing or persisting checkout credentials. Grants only `contents: write`; concurrency-cancels superseded runs per ref. Pages remains branch-based, with no direct deployment step.
+- `.github/workflows/build-main.yml` — On push/PR to `main`/`master`, calls the shared `build-and-commit-sh.yml` workflow with `amend-triggering-commit: true` to install dependencies, build, format, and lint. Pushes amend generated changes into the triggering commit, preserving its author and message, with an explicit `--force-with-lease` against the triggering SHA. Full-history checkout preserves ancestry; a newer remote commit rejects the push. PRs validate without committing or persisting checkout credentials. Declares the shared workflow's contents/Pages/OIDC permissions, but leaves `deploy-to-pages` disabled; concurrency-cancels superseded runs per ref. Pages remains branch-based, with no direct deployment step.
 - `README.md` — Forking + Pages setup instructions.
 - `DEV.md`, `AGENTS.md` — Developer/agent guidance; AGENTS.md defines the cross-agent layout (`AGENTS.md` context and `.agents/skills/<name>/SKILL.md` skills), squash-merge policy, and `raw.githubusercontent.com` for raw fetches.
 
@@ -34,5 +34,5 @@ Not tracked but relevant: `.oxfmtrc.json` (formatter config), `.gitignore`, `.gi
 ## Build & Release Flow
 
 1. **Local dev** — `npm run dev` serves on `127.0.0.1:8080` with auto-reload; `npm run build` re-fetches the upstream shell; `npm run format` runs `oxfmt --write .`.
-2. **CI** (`.github/workflows/build-main.yml`) — runs `build.sh` (refreshing `index.html` / `dev.sh` from upstream), formats, and lints. On pushes only, folds drift into the source commit rather than creating a separate bot commit, then force-pushes with a triggering-SHA lease. Branch-based GitHub Pages configuration remains unchanged.
+2. **CI** (`.github/workflows/build-main.yml`) — delegates to the shared opt-in amend workflow, which runs `build.sh` (refreshing `index.html` / `dev.sh` from upstream), formats, and lints. On pushes only, folds drift into the source commit rather than creating a separate bot commit, then force-pushes with a triggering-SHA lease. Branch-based GitHub Pages configuration remains unchanged.
 3. **Release** — no tagged artifact and CI never bumps the version; the deployed site is the release at `https://<user>.github.io/nav-generator-template/`. Engine and service worker are pinned by URL to `synle.github.io/nav-generator`, so upstream changes flow to every instance without re-deploying.
